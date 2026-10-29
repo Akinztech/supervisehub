@@ -1,0 +1,23 @@
+digraph G {
+ graph [rankdir=TB,bgcolor="white",pad=0.25,nodesep=0.25,ranksep=0.42];
+ node [fontname="Arial",fontsize=10,shape=box,style="rounded,filled",fillcolor="#f5f7ff",color="#315efb",penwidth=1.4];
+ edge [fontname="Arial",fontsize=9,color="#53627a",penwidth=1.2,arrowsize=.7];
+ start [label="Start",shape=ellipse,fillcolor="#e9f8f2",color="#159766"];
+ login [label="User logs in"];
+ role [label="Determine role",shape=diamond,fillcolor="#fff7df",color="#d88700"];
+ student [label="Student dashboard"];
+ request [label="Request session / submit milestone / upload document"];
+ supervisor [label="Supervisor dashboard"];
+ review [label="Approve session / record feedback / review milestone"];
+ admin [label="Coordinator dashboard"];
+ assign [label="Manage users, assignments and reports"];
+ update [label="Update project records and notifications",fillcolor="#eefcff",color="#13aabf"];
+ progress [label="Recalculate progress and monitoring indicators"];
+ end [label="Logout / End",shape=ellipse,fillcolor="#e9f8f2",color="#159766"];
+ start->login->role;
+ role->student [label="Student"]; role->supervisor [label="Supervisor"]; role->admin [label="Admin"];
+ student->request->update;
+ supervisor->review->update;
+ admin->assign->update;
+ update->progress->end;
+}

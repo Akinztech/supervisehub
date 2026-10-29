@@ -1,0 +1,29 @@
+SUPERVISEHUB DEVELOPMENT VALIDATION
+Date: 27 July 2026
+
+1. PHP syntax validation
+   - 29 PHP source files checked with PHP CLI lint.
+   - Result: no syntax errors detected.
+
+2. Demo credential validation
+   - The password hash in database/seed.sql was verified against Password123!.
+   - Result: verified.
+
+3. Interface evidence
+   - Public, student, supervisor and project-coordinator screens were rendered and visually inspected.
+   - Responsive CSS, role navigation, forms, tables, status badges and progress displays are included.
+
+4. Security controls represented in the source
+   - PDO prepared statements
+   - PHP password hashing and verification
+   - CSRF tokens for state-changing forms
+   - Session identifier regeneration after login
+   - Role and assigned-project authorisation checks
+   - Output escaping
+   - Authenticated document downloads
+   - File extension and size validation
+   - Relational foreign keys and indexes
+
+5. Deployment note
+   - End-to-end database workflows must be repeated on the target MySQL/MariaDB server.
+   - Use HTTPS, strong credentials, restricted database privileges, backups and server hardening in production.

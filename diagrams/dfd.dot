@@ -1,0 +1,21 @@
+digraph G {
+ graph [rankdir=LR,bgcolor="white",pad=.3,nodesep=.35,ranksep=.45];
+ node [fontname="Arial",fontsize=9]; edge [fontname="Arial",fontsize=8,color="#59677d",arrowsize=.65];
+ student [label="Student",shape=box,style="rounded,filled",fillcolor="#e8f2ff",color="#315efb"];
+ supervisor [label="Supervisor",shape=box,style="rounded,filled",fillcolor="#e8f2ff",color="#315efb"];
+ admin [label="Project Coordinator",shape=box,style="rounded,filled",fillcolor="#e8f2ff",color="#315efb"];
+ p1 [label="1.0\nAuthentication and User Management",shape=circle,style=filled,fillcolor="#f7f9ff",color="#315efb"];
+ p2 [label="2.0\nSession Management",shape=circle,style=filled,fillcolor="#f7f9ff",color="#315efb"];
+ p3 [label="3.0\nMilestone and Progress Tracking",shape=circle,style=filled,fillcolor="#f7f9ff",color="#315efb"];
+ p4 [label="4.0\nDocument and Message Management",shape=circle,style=filled,fillcolor="#f7f9ff",color="#315efb"];
+ p5 [label="5.0\nAnalytics and Reporting",shape=circle,style=filled,fillcolor="#f7f9ff",color="#315efb"];
+ d1 [label="D1 Users",shape=cylinder,style=filled,fillcolor="#eefaf4",color="#159766"];
+ d2 [label="D2 Projects and Sessions",shape=cylinder,style=filled,fillcolor="#eefaf4",color="#159766"];
+ d3 [label="D3 Milestones",shape=cylinder,style=filled,fillcolor="#eefaf4",color="#159766"];
+ d4 [label="D4 Documents and Messages",shape=cylinder,style=filled,fillcolor="#eefaf4",color="#159766"];
+ student->p1 [label="credentials/profile"]; supervisor->p1; admin->p1; p1->d1 [dir=both];
+ student->p2 [label="session request"]; supervisor->p2 [label="schedule/feedback"]; p2->d2 [dir=both];
+ student->p3 [label="submission"]; supervisor->p3 [label="review"]; p3->d3 [dir=both]; p3->d2 [label="progress update"];
+ student->p4 [label="files/messages"]; supervisor->p4; p4->d4 [dir=both];
+ admin->p5 [label="report request"]; d1->p5; d2->p5; d3->p5; p5->admin [label="dashboards/reports"];
+}

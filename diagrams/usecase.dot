@@ -1,0 +1,26 @@
+digraph G {
+ graph [rankdir=LR,bgcolor="white",pad=.3,nodesep=.28,ranksep=.35];
+ node [fontname="Arial",fontsize=10];
+ edge [color="#59677d",arrowsize=.65];
+ student [label="Student",shape=box,style="rounded,filled",fillcolor="#e8f2ff",color="#315efb"];
+ supervisor [label="Supervisor",shape=box,style="rounded,filled",fillcolor="#e8f2ff",color="#315efb"];
+ admin [label="Project\nCoordinator",shape=box,style="rounded,filled",fillcolor="#e8f2ff",color="#315efb"];
+ subgraph cluster_system { label="SuperviseHub System"; color="#b9c8ee"; style="rounded";
+  node [shape=ellipse,style="filled",fillcolor="#f9fbff",color="#315efb"];
+  auth [label="Authenticate user"];
+  request [label="Request supervision session"];
+  milestone [label="Submit milestone"];
+  upload [label="Upload document version"];
+  message [label="Exchange project messages"];
+  schedule [label="Approve / reschedule session"];
+  feedback [label="Record feedback and action items"];
+  review [label="Approve / return milestone"];
+  portfolio [label="Monitor assigned student portfolio"];
+  users [label="Manage users"];
+  assign [label="Assign supervisors and projects"];
+  analytics [label="View cohort analytics and reports"];
+ }
+ student->auth; student->request; student->milestone; student->upload; student->message;
+ supervisor->auth; supervisor->schedule; supervisor->feedback; supervisor->review; supervisor->portfolio; supervisor->message;
+ admin->auth; admin->users; admin->assign; admin->analytics;
+}

@@ -1,0 +1,22 @@
+digraph G {
+ graph [rankdir=LR,bgcolor="white",pad=.25,nodesep=.35,ranksep=.55,splines=ortho];
+ node [shape=record,style="filled",fillcolor="#f8faff",color="#315efb",penwidth=1.3,fontname="Arial",fontsize=9];
+ edge [color="#526178",fontname="Arial",fontsize=8,arrowsize=.65];
+ users [label="{USERS|PK id\l|full_name\lemail\lpassword_hash\lrole\lmatric_no / staff_no\lstatus\l}"];
+ projects [label="{PROJECTS|PK id\l|FK student_id\lFK supervisor_id\ltitle\lcurrent_stage\lstatus\lstart_date\ldue_date\l}"];
+ sessions [label="{SESSIONS|PK id\l|FK project_id\lFK requested_by\lscheduled_at\lmode\lagenda\lstatus\lfeedback\ldecisions\laction_items\l}"];
+ milestones [label="{MILESTONES|PK id\l|FK project_id\ltitle\ldue_date\lweight\lstatus\lstudent_note\lsupervisor_comment\l}"];
+ documents [label="{DOCUMENTS|PK id\l|FK project_id\lFK uploaded_by\lversion_no\loriginal_name\lfile_path\ldescription\l}"];
+ messages [label="{MESSAGES|PK id\l|FK project_id\lFK sender_id\lFK receiver_id\lsubject\lbody\lread_at\l}"];
+ notifications [label="{NOTIFICATIONS|PK id\l|FK user_id\ltype\lmessage\llink\lis_read\l}"];
+ users -> projects [label="student 1:N",dir=both,arrowtail=none];
+ users -> projects [label="supervisor 1:N",dir=both,arrowtail=none];
+ projects -> sessions [label="1:N"];
+ projects -> milestones [label="1:N"];
+ projects -> documents [label="1:N"];
+ projects -> messages [label="1:N"];
+ users -> sessions [label="requests"];
+ users -> documents [label="uploads"];
+ users -> messages [label="sends/receives"];
+ users -> notifications [label="1:N"];
+}

@@ -1,0 +1,16 @@
+digraph G {
+ graph [rankdir=TB,bgcolor="white",pad=0.3,nodesep=0.35,ranksep=0.55];
+ node [shape=box,style="rounded,filled",fontname="Arial",fontsize=12,color="#315efb",fillcolor="#f4f7ff",fontcolor="#10234a",penwidth=1.6];
+ edge [color="#65748b",penwidth=1.4,arrowsize=0.8,fontname="Arial",fontsize=10];
+ users [label="Students | Supervisors | Project Coordinator",shape=record,fillcolor="#e8f2ff"];
+ presentation [label="PRESENTATION LAYER\nResponsive HTML5, CSS3 and JavaScript\nRole-based dashboards and forms",width=5.8];
+ application [label="APPLICATION LAYER\nPHP 8.x Business Logic\nAuthentication | Sessions | Milestones | Documents | Messaging | Reports",width=6.6,fillcolor="#eefcff",color="#13aabf"];
+ data [label="DATA LAYER\nMySQL Relational Database\nUsers | Projects | Sessions | Milestones | Documents | Messages | Notifications",width=6.6,fillcolor="#eefaf4",color="#159766"];
+ security [label="Cross-cutting Security\nPDO prepared statements | Password hashing | CSRF | RBAC | Validation | Audit notifications",width=6.6,fillcolor="#fff8e8",color="#d88700"];
+ users -> presentation [label="Browser requests"];
+ presentation -> application [label="HTTPS form and dashboard actions"];
+ application -> data [label="PDO queries / transactions"];
+ data -> application [label="Structured records"];
+ application -> presentation [label="Views, alerts and analytics"];
+ security -> application [style=dashed,arrowhead=none];
+}
