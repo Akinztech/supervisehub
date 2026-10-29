@@ -1,0 +1,13 @@
+.env
+.env.*
+*.sqlite
+*.sqlite3
+/storage/*.sqlite
+/storage/*.sqlite3
+/uploads/*
+!uploads/.gitkeep
+!uploads/.htaccess
+.DS_Store
+node_modules/
+/vendor/
+.phpunit.result.cache
