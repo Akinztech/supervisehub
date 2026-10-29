@@ -51,6 +51,16 @@ DB_DRIVER=sqlite DB_DATABASE="$PWD/storage/supervisehub.sqlite" php demo_init.ph
 APP_URL=http://localhost:8000 DB_DRIVER=sqlite DB_DATABASE="$PWD/storage/supervisehub.sqlite" php -S 127.0.0.1:8000
 ```
 
+## GitHub Pages preview
+
+This repository also includes a static GitHub Pages landing page so the project can be previewed on GitHub Pages without a PHP runtime.
+
+- Repository: https://github.com/Akinztech/supervisehub
+- Pages workflow: `.github/workflows/pages.yml`
+- Static landing page: `index.html`
+
+GitHub Pages is designed for static assets, so the full PHP/MySQL application remains best served locally with the built-in PHP server. The static page is intended as a live project preview on GitHub Pages.
+
 ## Demo accounts
 
 All demo passwords are `Password123!`.
